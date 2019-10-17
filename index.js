@@ -10,6 +10,10 @@ var importer = function (request, prev, done) {
     var fileName = null,
       buff = "";
 
+    console.log(i + ' >> Request: ' + request);
+    console.log(i + ' >> Prev: ' + prev);
+    console.log(i + ' >> PrevMap: ' + JSON.stringify(prevMap));
+    console.log(i + ' >> PrevMap value: ' + prevMap[prev]);
     if (prev == "stdin") {
       fileName = path.join(__dirname, 'assets');
       fileName = path.join(fileName, request);
@@ -28,11 +32,9 @@ var importer = function (request, prev, done) {
     }
 
 
-    var uniqueFilename = 'file' + (i++);
+    var uniqueFilename = 'unique-file-' + (i++);
     done({
-      contents: buff, // #1
-      // file: uniqueFilename  // not working too
-      // file: fileName // #2
+      contents: buff
     });
   } else {
     done();
