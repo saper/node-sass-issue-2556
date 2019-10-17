@@ -32,9 +32,9 @@ var importer = function (request, prev, done) {
     }
 
 
-    var uniqueFilename = 'unique-file-' + (i++);
     done({
-      contents: buff
+      contents: buff,
+      file: request
     });
   } else {
     done();
