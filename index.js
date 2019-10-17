@@ -30,6 +30,7 @@ var importer = function (request, prev, done) {
       fileName += ".scss";
       buff = fs.readFileSync(fileName, 'utf8');
     }
+    i ++;
 
 
     done({
